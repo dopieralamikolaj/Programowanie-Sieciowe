@@ -22,7 +22,7 @@ namespace PSlab1
 
                     suma ^= n;
                     
-                }
+                } 
             }
         }
     }
