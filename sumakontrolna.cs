@@ -10,6 +10,7 @@ namespace PSlab1
             int m, n, v;
             int suma = 0;
             
+            
             for (int i = 0; i < zmienna.Length; i++)
             {
                 for (int j = 0; j < 8; j++)
