@@ -1,0 +1,5 @@
+D:\MD_PS\PSlab1\obj\Debug\PSlab1.csprojResolveAssemblyReference.cache
+D:\MD_PS\PSlab1\bin\Debug\PSlab1.exe
+D:\MD_PS\PSlab1\bin\Debug\PSlab1.pdb
+D:\MD_PS\PSlab1\obj\Debug\PSlab1.exe
+D:\MD_PS\PSlab1\obj\Debug\PSlab1.pdb
