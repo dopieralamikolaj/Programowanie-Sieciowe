@@ -6,6 +6,7 @@ namespace PSlab1
     {
         static void Main()
         {
+            
             string zmienna = "tekst";
             int m, n, v;
             int suma = 0;
