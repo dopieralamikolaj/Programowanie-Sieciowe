@@ -1,0 +1,6 @@
+C:\Users\Mikołaj\Desktop\sieci-master\crc\crc\bin\Debug\crc.exe.config
+C:\Users\Mikołaj\Desktop\sieci-master\crc\crc\bin\Debug\crc.exe
+C:\Users\Mikołaj\Desktop\sieci-master\crc\crc\bin\Debug\crc.pdb
+C:\Users\Mikołaj\Desktop\sieci-master\crc\crc\obj\Debug\crc.csproj.CoreCompileInputs.cache
+C:\Users\Mikołaj\Desktop\sieci-master\crc\crc\obj\Debug\crc.exe
+C:\Users\Mikołaj\Desktop\sieci-master\crc\crc\obj\Debug\crc.pdb

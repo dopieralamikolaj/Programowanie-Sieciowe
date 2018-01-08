@@ -10,35 +10,80 @@ namespace crc
     {
         static void Main()
         {
-            Console.Write("Podaj dane (hex): ");
-            string input = Console.ReadLine(); //odczyt danych od użytkownika
-            var bytes = HexToBytes(input); //zamiana danych w postaci hex na bajty
-            int j=0;
-            foreach (int i in bytes) //wydruk poszcególnych bajtów
-            {
-                Console.Write("bajt {0} (dec): ", j);
-                Console.WriteLine(i);
-                j++;
-            }
+          //  Console.Write("Podaj dane (hex): ");
+            //   int dane_we=Convert.ToInt32(Console.ReadLine());
+          //  string input = Console.ReadLine(); //odczyt danych od użytkownika
+          //  var bytes = 1;// HexToBytes(input); //zamiana danych w postaci hex na bajty
 
-            string hex = Crc16.ComputeChecksum(bytes).ToString("x2"); //zapis wyniku do postaci binarnej
-            Console.WriteLine(hex); 
+           // int j = 0;
+            //            Console.Write("ilosc bajtow: {0}", bytes.Length);
+
+            Console.Write("Podaj dane: ");
+            string text = Console.ReadLine();
+            //byte[] byteArrayUTF = System.Text.Encoding.UTF8.GetBytes(text);
+            byte[] byteArrayASCII = System.Text.Encoding.ASCII.GetBytes(text);
+
+            Console.Write("ilosc bajtow ascii: {0}\n", byteArrayASCII.Length);
+          //  Console.Write("bajt0: {0}; bajt1: {1}; bajt2: {2}", byteArrayASCII[0], byteArrayASCII[1], byteArrayASCII[2]);
+
+
+
+
+
+
+            foreach (int i in byteArrayASCII) //wydruk poszcególnych bajtów
+            {
+                Console.Write("\nbajt {0} (dec)", i);
+                // byteArrayASCII[j] = byteArrayASCII[j] << 3;
+               // j++;
+            }
+            int crc_wynik=crc16_wer1.crc16_mcrf4xx(byteArrayASCII);
+            Console.Write("\ncrc_wynik {0:X} (dec)", crc_wynik);
+
+          //  int crc_wynik2 = Crc16.ComputeChecksum(byteArrayASCII);
+          //  Console.Write("\ncrc_wynik2 {0:X} (dec)", crc_wynik2);
+
+          
+
             Console.ReadKey();
         }
-        static byte[] HexToBytes(string input)
-        {
-            byte[] result = new byte[input.Length / 2]; //inicjalizacja tablicy z danymi o połowie długości danych wejściowych
-            for (int i = 0; i < result.Length; i++) //iteracja po każdym z bitów
-            {
-                result[i] = Convert.ToByte(input.Substring(2 * i, 2), 16); //konwersja do bajtów w postaci 16-stkowej 
-                                                                        //substring grupuje dane po 2 bajty
-            }
-            return result;
-        }
 
+
+        public static class crc16_wer1
+        {
+            public static int crc16_mcrf4xx(byte[] bajty)
+            {
+                //$data = pack('H*', $dane);
+                int crc = 0xFFFF;
+                for (int i = 0; i < bajty.Length; i++) //tyle ile bajtów
+                {
+                  //  Console.Write("\ncrc {0} ", crc);
+                    crc ^= bajty[i];
+                    //xor crc oraz data
+
+                    for (int j = 8; j != 0; j--)
+                    {
+                        if ((crc & 0x0001) != 0)
+                        {
+                            crc >>= 1;
+                            crc ^= 0xA001;// 0x8408;
+                        }
+                        else crc >>= 1;
+                    }
+                }
+                return crc;
+            }
+
+        }
+    
+        
+
+          
+   
         public static class Crc16 //klasa dot. obliczania crc16
         {
             const ushort crc_dzielnik = 0xA001;  //dzielnik crc -bin-> 1010 0000 0000 0001
+            
             static readonly ushort[] table = new ushort[256]; //tablica 256 elementów
             
             public static ushort ComputeChecksum(byte[] bytes) //metoda - obliczanie sumy kontrolnej
@@ -77,6 +122,13 @@ namespace crc
                     table[i] = value;
                 }
             }
-        }
+
+
+
+
+      
+    }
+       
+
     }
 }

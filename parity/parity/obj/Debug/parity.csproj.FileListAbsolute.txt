@@ -1,0 +1,7 @@
+C:\Users\Mikołaj\Desktop\sieci-master\parity\parity\bin\Debug\parity.exe.config
+C:\Users\Mikołaj\Desktop\sieci-master\parity\parity\bin\Debug\parity.exe
+C:\Users\Mikołaj\Desktop\sieci-master\parity\parity\bin\Debug\parity.pdb
+C:\Users\Mikołaj\Desktop\sieci-master\parity\parity\obj\Debug\parity.csprojResolveAssemblyReference.cache
+C:\Users\Mikołaj\Desktop\sieci-master\parity\parity\obj\Debug\parity.csproj.CoreCompileInputs.cache
+C:\Users\Mikołaj\Desktop\sieci-master\parity\parity\obj\Debug\parity.exe
+C:\Users\Mikołaj\Desktop\sieci-master\parity\parity\obj\Debug\parity.pdb
